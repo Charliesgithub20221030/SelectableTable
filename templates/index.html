@@ -10,9 +10,28 @@
     <link rel="stylesheet" href="http://cdn.syncfusion.com/13.2.0.29/js/web/flat-azure/ej.web.all.min.css" />
     <script src="http://cdn.syncfusion.com/13.2.0.29/js/web/ej.web.all.min.js"> </script>
 
+
     <script>
         $(document).ready(function () {
+            $('#bt').click(function () {
 
+                $.ajax({
+                    url: "{{ url_for('data_api')}}",
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+
+                        $('#result').text('success');
+                        $('#get').text(response.firstdata);
+                    },
+                    error: function () {
+                        $('#result').text('fail');
+                    }
+
+                })
+
+                // $('#get').text('i am clicked');
+            })
 
         })
 
@@ -30,11 +49,29 @@
 
 
     </script>
-
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>selection table</h1>
+    <div style='color: blue;font-weight: bold;'>
+        {% if username %}
+        <p> User: {{ username }}</p>
+        {% else %}
+        <p>Not login</p>
+        {% endif%}
+    </div>
+    <hr>
     <div id="grid"></div>
+    <input type="button" value="get" id="bt">
+    <div id="result"></div>
+    <div id="get">
+
+    </div>
 </body>
 
 </html>
