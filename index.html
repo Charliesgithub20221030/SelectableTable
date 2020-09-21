@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectable Table</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://cdn.syncfusion.com/13.2.0.29/js/web/flat-azure/ej.web.all.min.css" />
+    <script src="http://cdn.syncfusion.com/13.2.0.29/js/web/ej.web.all.min.js"> </script>
+
+    <script>
+        $(document).ready(function () {
+
+
+        })
+
+        $(function () {
+            $('#Grid').ejGrid({
+                dataSource: shipDetails
+            });
+        });
+
+        var shipDetails = [
+            { Name: 'Hanari Carnes', City: 'Brazil' },
+            { Name: 'Split Rail Beer & Ale', City: 'USA' },
+            { Name: 'Ricardo Adocicados', City: 'Brazil' }
+        ];
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="grid"></div>
+</body>
+
+</html>
